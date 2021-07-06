@@ -13,15 +13,16 @@ function handleSearchFormSubmit(event) {
     return;
   }
   var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-  location.assign(queryURL);
-}
 
-city.addEventListener('submit', handleSearchFormSubmit);
+  fetch(queryURL)
 
-fetch(queryURL)
   .then((response) => {
     return response.json();
   })
   .then((data) => {
     console.log(data);
   });
+}
+
+city.addEventListener('submit', handleSearchFormSubmit);
+
