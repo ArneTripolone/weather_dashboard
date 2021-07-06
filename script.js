@@ -21,9 +21,10 @@ function handleSearchFormSubmit(event) {
   })
   .then((data) => {
     console.log(data.name, data.weather, data.main.temp, data.wind.speed, data.main.humidity);
-    var results = document.createElement("h3")
-    results.textContent = data.main.temp;
-    document.getElementById("results").append(results)
+    var cityname = document.createElement("h3")
+    cityname.textContent = data.name
+    document.getElementById("cityname").append(cityname)
+    //document.getElementById("results").append(results)
   });
 }
 
