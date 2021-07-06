@@ -18,6 +18,10 @@ function handleSearchFormSubmit(event) {
 
 city.addEventListener('submit', handleSearchFormSubmit);
 
-fetch(queryUrl);
-
-
+fetch(queryURL)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  });
