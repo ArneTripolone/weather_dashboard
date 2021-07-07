@@ -7,9 +7,13 @@
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+<header>
+  <h2>Weather Dashboard</h2>
+</header>
+
 <body>
     <form id="search-form" class="mb-2">
-        <H1>Search for a City:</H1>
+        <h1>Search for a City:</h1>
         <input id="search-input" class="form-input" type="text" placeholder="Sydney">
         </select>
         <br>
@@ -19,8 +23,11 @@
       </form>
       
       <article id="weather">
-        <h1>Weather</h1>
-        <p>Weather Results</p>
+        <p id="cityname1">City: </p>
+        <p id="citytemp">Temp: </p>
+        <p id="citywind">Wind: </p>
+        <p id="cityhumidity">Humidity: </p>
+        <p id="cityuv">UV: </p>
       </article>
 
 <script src="script.js"></script>    

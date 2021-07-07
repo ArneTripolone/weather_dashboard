@@ -20,11 +20,22 @@ function handleSearchFormSubmit(event) {
     return response.json();
   })
   .then((data) => {
-    console.log(data.name, data.weather, data.main.temp, data.wind.speed, data.main.humidity);
-    var cityname = document.createElement("h3")
+    console.log(data.name, data.weather, data.main.temp, data.wind.speed, data.main.humidity); 
+    var cityname = document.createElement("h2")
     cityname.textContent = data.name
     document.getElementById("cityname").append(cityname)
-    //document.getElementById("results").append(results)
+    
+    var citytemp = document.createElement("h2")
+    citytemp.textContent = data.main.temp
+    document.getElementById("citytemp").append(citytemp)
+
+    var citywind = document.createElement("h2")
+    citywind.textContent = data.wind.speed
+    document.getElementById("citywind").append(citywind)
+
+    var cityhumidity = document.createElement("h3")
+    cityhumidity.textContent = data.main.humidity
+    document.getElementById("cityhumidity").append(cityhumidity)
   });
 }
 
