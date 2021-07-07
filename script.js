@@ -12,6 +12,10 @@ function handleSearchFormSubmit(event) {
     console.error('You need a search input value!');
     return;
   }
+  callweatherAPI(city)
+  
+}
+function callweatherAPI(city) {
   var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
   fetch(queryURL)
@@ -24,20 +28,19 @@ function handleSearchFormSubmit(event) {
     var cityname = document.createElement("h2")
     cityname.textContent = data.name
     document.getElementById("cityname").append(cityname)
-    
+    document.getElementById("cityname1").textContent="City: " + data.name
+   
     var citytemp = document.createElement("h2")
     citytemp.textContent = data.main.temp
-    document.getElementById("citytemp").append(citytemp)
+    document.getElementById("citytemp").textContent="Temp: " + data.main.temp
 
     var citywind = document.createElement("h2")
     citywind.textContent = data.wind.speed
-    document.getElementById("citywind").append(citywind)
+    document.getElementById("citywind").textContent="Wind: " + data.wind.speed
 
     var cityhumidity = document.createElement("h3")
     cityhumidity.textContent = data.main.humidity
-    document.getElementById("cityhumidity").append(cityhumidity)
-  });
-}
-
+    document.getElementById("cityhumidity").textContent="Humidity: " + data.main.humidity
+  });}
 city.addEventListener('submit', handleSearchFormSubmit);
 
