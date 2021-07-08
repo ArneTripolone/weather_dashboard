@@ -16,6 +16,7 @@ function handleSearchFormSubmit(event) {
   callforecastAPI(city)
   
 }
+
 function callweatherAPI(city) {
   var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
@@ -137,4 +138,10 @@ function callweatherAPI(city) {
     });}
   
 city.addEventListener('submit', handleSearchFormSubmit);
+
+function save(){
+  var citySearchSave = document.getElementById("search-input").value;
+  localStorage.setItem("city", citySearchSave);
+  console.log(citySearchSave);
+}
 
