@@ -13,6 +13,7 @@ function handleSearchFormSubmit(event) {
     return;
   }
   callweatherAPI(city)
+  callforecastAPI(city)
   
 }
 function callweatherAPI(city) {
@@ -42,5 +43,18 @@ function callweatherAPI(city) {
     cityhumidity.textContent = data.main.humidity
     document.getElementById("cityhumidity").textContent="Humidity: " + data.main.humidity
   });}
+
+  function callforecastAPI(city) {
+    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
+  
+    fetch(queryURL)
+  
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      (console.log(data.list[0].dt_txt, data.list[0].main.temp)); 
+    });}
+  
 city.addEventListener('submit', handleSearchFormSubmit);
 
