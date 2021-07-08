@@ -53,7 +53,23 @@ function callweatherAPI(city) {
       return response.json();
     })
     .then((data) => {
-      (console.log(data.list[0].dt_txt, data.list[0].main.temp)); 
+      (console.log(data.list[8].dt_txt, data.list[8].main.temp, data.list[8].main.humidity, data.list[8].wind.speed))
+      
+    var citydatef1 = document.createElement("p")
+    citydatef1.textContent = data.list[8].dt_txt
+    document.getElementById("citydatef1").textContent=data.list[8].dt_txt
+    
+    var citytempf1 = document.createElement("p")
+    citytempf1.textContent = textContent=data.list[8].main.temp
+    document.getElementById("citytempf1").textContent=data.list[8].main.temp
+
+    var citywindf1 = document.createElement("p")
+    citywindf1.textContent = textContent=data.list[8].wind.speed
+    document.getElementById("citywindf1").textContent=data.list[8].wind.speed
+
+    var cityhumidityf1 = document.createElement("p")
+    cityhumidityf1.textContent = textContent=data.list[8].main.humidity
+    document.getElementById("cityhumidityf1").textContent=data.list[8].main.humidity; 
     });}
   
 city.addEventListener('submit', handleSearchFormSubmit);
