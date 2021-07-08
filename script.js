@@ -18,7 +18,7 @@ function handleSearchFormSubmit(event) {
 }
 
 function callweatherAPI(city) {
-  var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
   fetch(queryURL)
 
@@ -27,10 +27,10 @@ function callweatherAPI(city) {
   })
   .then((data) => {
     console.log(data.name, data.weather, data.main.temp, data.wind.speed, data.main.humidity); 
-    var cityname = document.createElement("h2")
+    var cityname = document.createElement("h1")
     cityname.textContent = data.name
     document.getElementById("cityname").append(cityname)
-    document.getElementById("cityname1").textContent="City: " + data.name
+    document.getElementById("cityname1").textContent=data.name
    
     var citytemp = document.createElement("h2")
     citytemp.textContent = data.main.temp
@@ -46,7 +46,7 @@ function callweatherAPI(city) {
   });}
 
   function callforecastAPI(city) {
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
   
     fetch(queryURL)
   
@@ -141,7 +141,7 @@ city.addEventListener('submit', handleSearchFormSubmit);
 
 function save(){
   var citySearchSave = document.getElementById("search-input").value;
-  localStorage.setItem("city", citySearchSave);
+  localStorage.setItem('city', citySearchSave);
   console.log(citySearchSave);
 }
 
