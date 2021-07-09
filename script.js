@@ -30,7 +30,7 @@ function callweatherAPI(city) {
     var cityname = document.createElement("h1")
     cityname.textContent = data.name
     document.getElementById("cityname").append(cityname)
-    document.getElementById("cityname1").textContent=data.name
+    document.getElementById("cityname1").textContent="" + data.name
    
     var citytemp = document.createElement("h2")
     citytemp.textContent = data.main.temp
@@ -140,9 +140,9 @@ function callweatherAPI(city) {
 city.addEventListener('submit', handleSearchFormSubmit);
 
 function save(){
-  var new_data = document.getElementById('search-input').value;
+  var new_data = document.getElementById('search-input').value
   if(localStorage.getItem('data') == null){
-    localStorage.setItem('data', '[]');
+    localStorage.setItem('data', JSON.stringify([]));
   }
   var old_data = JSON.parse(localStorage.getItem('data'));
   old_data.push(new_data);
