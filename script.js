@@ -29,8 +29,7 @@ function callweatherAPI(city) {
     console.log(data.name, data.weather, data.main.temp, data.wind.speed, data.main.humidity); 
     var cityname = document.createElement("h1")
     cityname.textContent = data.name
-    document.getElementById("cityname").append(cityname)
-    document.getElementById("cityname1").textContent="" + data.name
+    document.getElementById("cityname1").textContent=data.name
    
     var citytemp = document.createElement("h2")
     citytemp.textContent = data.main.temp
@@ -43,7 +42,13 @@ function callweatherAPI(city) {
     var cityhumidity = document.createElement("h3")
     cityhumidity.textContent = data.main.humidity
     document.getElementById("cityhumidity").textContent="Humidity: " + data.main.humidity
+
   });}
+
+  function addCity() {
+   var cityname = document.createElement("h1")
+   document.getElementById("cityname").append(cityname)
+  }
 
   function callforecastAPI(city) {
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
@@ -140,7 +145,7 @@ function callweatherAPI(city) {
 city.addEventListener('submit', handleSearchFormSubmit);
 
 function save(){
-  var new_data = document.getElementById('search-input').value
+  var new_data = document.getElementById('search-input').value;
   if(localStorage.getItem('data') == null){
     localStorage.setItem('data', JSON.stringify([]));
   }
@@ -152,6 +157,13 @@ function save(){
 
 window.onload = function view(){ 
   if(localStorage.getItem('data') != null){ 
-    document.getElementById('cityname').innerHTML = JSON.parse(localStorage.getItem('data'))  
+    document.getElementById('cityname').innerHTML = JSON.parse(localStorage.getItem('data'))
   }
 }
+
+window.onload = function view(){ 
+  if(localStorage.getItem('data') != null){
+    document.getElementById('cityname').innerHTML = JSON.parse(localStorage.getItem('data'))   
+  }
+}
+
