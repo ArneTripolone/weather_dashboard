@@ -140,8 +140,18 @@ function callweatherAPI(city) {
 city.addEventListener('submit', handleSearchFormSubmit);
 
 function save(){
-  var citySearchSave = document.getElementById("search-input").value;
-  localStorage.setItem('city', citySearchSave);
-  console.log(citySearchSave);
+  var new_data = document.getElementById('search-input').value;
+  if(localStorage.getItem('data') == null){
+    localStorage.setItem('data', '[]');
+  }
+  var old_data = JSON.parse(localStorage.getItem('data'));
+  old_data.push(new_data);
+
+  localStorage.setItem('data', JSON.stringify(old_data))
 }
 
+window.onload = function view(){ 
+  if(localStorage.getItem('data') != null){ 
+    document.getElementById('cityname').innerHTML = JSON.parse(localStorage.getItem('data'))  
+  }
+}
