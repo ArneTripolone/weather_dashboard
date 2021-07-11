@@ -30,6 +30,17 @@ article {
     color: white;
   }
 
+.btn {
+  background-color: rgb(77, 110, 182);
+}
+
+#cityname {
+  width: 50px;
+  display: table;
+  padding: 1em 1.5em;
+  }
+
+
   @media (max-width: 600px) {
     nav, article {
       width: 100%;

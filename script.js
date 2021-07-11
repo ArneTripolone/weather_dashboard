@@ -1,5 +1,4 @@
 var APIKey = "42c433d4450fe2209bd6a8a993c251fc";
-var city;
 
 var city = document.querySelector('#search-form');
 
@@ -26,7 +25,14 @@ function callweatherAPI(city) {
     return response.json();
   })
   .then((data) => {
-    console.log(data.name, data.weather, data.main.temp, data.wind.speed, data.main.humidity); 
+    console.log(data.name, data.weather, data.main.temp, data.wind.speed, data.main.humidity, data.weather.icon); 
+    
+    //this code generates the relevant weather icon based on the current weather, but I haven't been able to figure out how to make the icon display in the browser on page load.
+    //currently I need to open the app, copy the url that is generated and open this in a seperate page - that gives you the relevant icon.
+    /*var weathericon = document.createElement("h1")
+    weathericon.textContent = data.weather[0].icon
+    window.onload.document.getElementById("weathericon").textContent = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '.png'*/
+
     var cityname = document.createElement("h1")
     cityname.textContent = data.name
     document.getElementById("cityname1").textContent=data.name
@@ -145,7 +151,7 @@ function callweatherAPI(city) {
 city.addEventListener('submit', handleSearchFormSubmit);
 
 function save(){
-  var new_data = document.getElementById('search-input').value;
+  var new_data = ' ' + document.getElementById('search-input').value;
   if(localStorage.getItem('data') == null){
     localStorage.setItem('data', JSON.stringify([]));
   }
@@ -156,14 +162,8 @@ function save(){
 }
 
 window.onload = function view(){ 
-  if(localStorage.getItem('data') != null){ 
-    document.getElementById('cityname').innerHTML = JSON.parse(localStorage.getItem('data'))
-  }
-}
-
-window.onload = function view(){ 
   if(localStorage.getItem('data') != null){
-    document.getElementById('cityname').innerHTML = JSON.parse(localStorage.getItem('data'))   
+    document.getElementById('cityname').innerHTML = JSON.parse(localStorage.getItem('data'));  
   }
 }
 
