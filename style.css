@@ -2,7 +2,7 @@
     box-sizing: border-box;
   }
   header {
-    background-color: rgb(89, 33, 220);
+    background-image: linear-gradient(to right, rgb(165, 173, 207) , rgb(89, 33, 220));
     padding: 5px;
     text-align: center;
     font-size: 20px;
@@ -10,10 +10,11 @@
   }
 
 article {
+    padding: 20px;
+    border: 1px solid black;
     float: left;
     padding: 20px;
     width: 70%;
-    background-color: #f1f1f1;
   }
 
   form {
@@ -40,6 +41,10 @@ article {
   padding: 1em 1.5em;
   }
 
+.card-body {
+  color: white;
+  background-color: rgb(34, 19, 130);
+}  
 
   @media (max-width: 600px) {
     nav, article {
